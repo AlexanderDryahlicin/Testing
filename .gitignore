@@ -1,0 +1,5 @@
+.venv/
+test/
+UROK/
+.idea/
+__pycache__/
