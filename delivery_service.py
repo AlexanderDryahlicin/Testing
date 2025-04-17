@@ -13,10 +13,40 @@ def get_cost(weight: int) -> str:
         raise ValueError("Вес не может быть отрицательным")
     return 'Стоимость доставки: 200 руб.' if weight <= 10 else 'Стоимость доставки: 500 руб.'
 
+#--------------------------------------
+def check_triangle(side1: int, side2: int, side3: int) -> str:
+    if (
+            side1 <= 0 or side2 <= 0 or side3 <= 0
+            or (side1 + side2) <= side3
+            or (side1 + side3) <= side2
+            or (side3 + side2) <= side1
+    ):
+        return "Треугольник не существует"
+    elif side1 == side2 == side3:
+        return "Равносторонний треугольник"
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        return "Равнобедренный треугольник"
+    else:
+        return "Разносторонний треугольник"
+#------------------------------------
+
+
 
 if __name__ == '__main__':
     print("=== Тестирование функций ===")
+    #---------------------------
+    triangle = check_triangle(10, 10, 10)
+    print("Треугольник со сторонами 10, 10, 10:", triangle)
 
+    triangle = check_triangle(10, 20, 30)
+    print("Треугольник со сторонами 10, 20, 30:", triangle)
+
+    triangle = check_triangle(10, 10, 20)
+    print("Треугольник со сторонами 10, 10, 20:", triangle)
+
+    triangle = check_triangle(-10, 10, 20)
+    print("Треугольник со сторонами -10, 10, 20:", triangle)
+    #---------------------------
     # Демонстрация работы check_age
     print("\n1. Проверка возраста:")
     for age in [15, 18, 20]:
